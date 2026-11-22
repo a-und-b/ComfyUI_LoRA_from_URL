@@ -1,7 +1,3 @@
-from .load_lora_url_node import LoadLoraFromURL
+from .load_lora_url_node import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
 
-NODE_CLASS_MAPPINGS = {
-    "Load LoRA From URL": LoadLoraFromURL
-}
-
-__all__ = ['NODE_CLASS_MAPPINGS']
+__all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]

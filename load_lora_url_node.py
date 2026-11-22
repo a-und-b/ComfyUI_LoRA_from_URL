@@ -68,3 +68,12 @@ class LoadLoraFromURL:
         except Exception as e:
             print(f"Error loading LoRA: {str(e)}")
             return (model,)
+
+
+NODE_CLASS_MAPPINGS = {
+    "Load LoRA From URL": LoadLoraFromURL
+}
+
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "Load LoRA From URL": "Load LoRA From URL"
+}
