@@ -1,7 +1,7 @@
 [project]
 name = "lora_from_url"
 description = "A simple-as-possible custom node for ComfyUI to load LoRA models from a public URL."
-version = "1.0.0"
+version = "1.0.1"
 license = {file = "LICENSE"}
 dependencies = ["requests>=2.31.0", "tqdm>=4.66.0"]
 
