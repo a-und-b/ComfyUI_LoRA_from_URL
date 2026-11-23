@@ -30,7 +30,7 @@ class LoadLoraFromURL:
                         "tooltip": "Direct download URL to a .safetensors LoRA file",
                     },
                 ),
-                "model": ("MODEL",),
+                "model": ("MODEL", {"tooltip": "The model the LoRA is applied to"}),
                 "strength": (
                     "FLOAT",
                     {
@@ -47,7 +47,8 @@ class LoadLoraFromURL:
     RETURN_TYPES = ("MODEL",)
     RETURN_NAMES = ("model",)
     FUNCTION = "load_lora"
-    CATEGORY = "loaders"
+    CATEGORY = "AB/Loaders"
+    SEARCH_ALIASES = ["Load LoRA From URL", "download lora", "lora url", "remote lora"]
     DESCRIPTION = (
         "Downloads a LoRA from a URL (cached under input/url_loras) and applies "
         "it to the given model."
@@ -57,7 +58,7 @@ class LoadLoraFromURL:
         """Download the file if not in cache"""
         parsed = urlparse(url)
         if parsed.scheme not in ("http", "https") or not parsed.netloc:
-            raise ValueError(f"Load LoRA From URL: expected an http(s) URL, got {url!r}")
+            raise ValueError(f"AB LoRA from URL: expected an http(s) URL, got {url!r}")
 
         filename = hashlib.md5(url.encode()).hexdigest() + ".safetensors"
         local_path = os.path.join(self.cache_dir, filename)
@@ -103,5 +104,5 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Load LoRA From URL": "Load LoRA From URL"
+    "Load LoRA From URL": "AB LoRA from URL"
 }
